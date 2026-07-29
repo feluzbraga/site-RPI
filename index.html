@@ -3,672 +3,945 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RP Implantes – Odontologia Especializada em São José do Rio Preto</title>
-  <meta name="description" content="Clínica odontológica especializada em implantes dentais em São José do Rio Preto. Transformamos sorrisos com excelência, tecnologia e cuidado." />
+  <title>Implante Dentário em São José do Rio Preto | RP Implantes</title>
+  <meta name="description" content="Especialistas em implantes dentários em São José do Rio Preto. Avaliação gratuita, parcelas facilitadas e mais de 4.000 sorrisos transformados. Agende agora!" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     :root {
       --teal: #2aa8a1;
       --teal-dark: #1e8880;
+      --teal-xdark: #155f5b;
       --teal-light: #e6f7f6;
+      --teal-mid: #c0ecea;
       --orange: #E8621A;
       --orange-dark: #c4511a;
+      --orange-light: #fff1ea;
+      --text: #0f2b29;
+      --text-soft: #3d6360;
+      --text-muted: #7a9e9b;
       --bg: #ffffff;
       --bg2: #f4fafa;
-      --bg3: #e8f5f4;
-      --border: rgba(42,168,161,0.18);
-      --text: #1a2e2d;
-      --text-soft: #4b7370;
-      --text-muted: #8aa8a5;
+      --border: rgba(42,168,161,0.15);
       --white: #ffffff;
-      --nav-bg: rgba(255,255,255,0.96);
-      --card-bg: #ffffff;
-      --card-bg2: #f4fafa;
+      --green-check: #16a34a;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
 
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
+    img { max-width: 100%; display: block; }
+
+    /* ── STICKY BAR ── */
+    .sticky-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: var(--teal-xdark);
+      padding: 0.65rem 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem;
     }
-
-    /* ─── NAV ─── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      padding: 0 5%;
-      height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: var(--nav-bg);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      box-shadow: 0 1px 12px rgba(42,168,161,0.08);
-      transition: all 0.3s;
+    .sticky-bar p {
+      color: var(--white); font-size: 0.88rem; font-weight: 400;
     }
+    .sticky-bar strong { color: #7ef5ef; }
+    .sticky-bar a {
+      background: var(--orange); color: var(--white);
+      padding: 0.5rem 1.4rem; border-radius: 4px;
+      font-size: 0.85rem; font-weight: 600; text-decoration: none;
+      white-space: nowrap; transition: background 0.2s;
+      flex-shrink: 0;
+    }
+    .sticky-bar a:hover { background: var(--orange-dark); }
 
-    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .nav-logo-mark { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.6rem; letter-spacing: -1px; color: var(--teal); }
-    .nav-logo-mark span { color: var(--orange); }
-
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { color: var(--text-soft); text-decoration: none; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--teal); }
-
-    .nav-cta { background: var(--orange); color: var(--white) !important; padding: 0.55rem 1.3rem; border-radius: 4px; font-weight: 600 !important; }
-    .nav-cta:hover { background: var(--orange-dark); color: var(--white) !important; }
-
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); transition: all 0.3s; }
-
-    /* ─── HERO ─── */
-    #inicio {
+    /* ── HERO ── */
+    .hero {
+      padding: 4.5rem 5% 0;
+      background: linear-gradient(160deg, #f0fbfa 0%, #ffffff 55%, #fff7f3 100%);
       min-height: 100vh;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.1fr 0.9fr;
       align-items: center;
-      padding: 72px 5% 0;
+      gap: 4rem;
       position: relative;
       overflow: hidden;
-      background: linear-gradient(135deg, #f0fbfa 0%, #ffffff 50%, #fff8f5 100%);
     }
 
-    .hero-bg {
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 60% 60% at 70% 50%, rgba(42,168,161,0.07) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 50% at 20% 80%, rgba(232,98,26,0.05) 0%, transparent 55%);
+    .hero::before {
+      content: '';
+      position: absolute; top: -80px; right: -80px;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(42,168,161,0.08) 0%, transparent 70%);
+      pointer-events: none;
     }
 
-    .hero-grid-lines {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(42,168,161,0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(42,168,161,0.05) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
-
-    .hero-content { position: relative; z-index: 2; padding-right: 2rem; }
-
-    .hero-badge {
+    .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(42,168,161,0.1); border: 1px solid rgba(42,168,161,0.25);
-      color: var(--teal); padding: 0.4rem 1rem; border-radius: 100px;
-      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
-      margin-bottom: 1.5rem; animation: fadeUp 0.6s ease both;
+      background: var(--teal-light); border: 1px solid var(--teal-mid);
+      color: var(--teal-dark); padding: 0.38rem 0.9rem; border-radius: 100px;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; margin-bottom: 1.2rem;
     }
-    .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--teal); border-radius: 50%; }
+    .hero-eyebrow::before { content: '★'; font-size: 0.7rem; }
 
-    .hero-title {
+    .hero h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.6rem, 5vw, 4.4rem);
+      line-height: 1.0;
+      letter-spacing: -0.5px;
+      color: var(--text);
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 em { font-style: normal; color: var(--teal); }
+    .hero h1 .hi { color: var(--orange); }
+
+    .hero-sub {
+      font-size: 1.08rem; line-height: 1.75;
+      color: var(--text-soft); font-weight: 400;
+      max-width: 520px; margin-bottom: 2rem;
+    }
+
+    .hero-checks {
+      list-style: none; display: flex; flex-direction: column; gap: 0.6rem;
+      margin-bottom: 2.2rem;
+    }
+    .hero-checks li {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-size: 0.95rem; color: var(--text-soft); font-weight: 400;
+    }
+    .hero-checks li::before {
+      content: '✓';
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--teal); color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700; flex-shrink: 0;
+    }
+
+    .cta-group { display: flex; flex-direction: column; gap: 0.75rem; max-width: 420px; }
+
+    .btn-cta-main {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      background: var(--orange); color: var(--white);
+      padding: 1.1rem 2rem; border-radius: 8px;
+      font-weight: 700; font-size: 1.05rem; text-decoration: none;
+      transition: all 0.25s; text-align: center;
+      box-shadow: 0 6px 24px rgba(232,98,26,0.3);
+    }
+    .btn-cta-main:hover { background: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(232,98,26,0.38); }
+
+    .btn-cta-sec {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      background: var(--white); color: var(--teal);
+      padding: 1rem 2rem; border-radius: 8px;
+      font-weight: 600; font-size: 1rem; text-decoration: none;
+      transition: all 0.25s; text-align: center;
+      border: 2px solid var(--teal);
+    }
+    .btn-cta-sec:hover { background: var(--teal-light); transform: translateY(-2px); }
+
+    .hero-guarantee {
+      margin-top: 1rem;
+      font-size: 0.8rem; color: var(--text-muted);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .hero-guarantee::before { content: '🔒'; font-size: 0.85rem; }
+
+    /* Hero visual side */
+    .hero-visual {
+      position: relative;
+      display: flex; flex-direction: column; gap: 1rem;
+      padding-bottom: 3rem;
+    }
+
+    .hero-img-main {
+      border-radius: 16px; overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 48px rgba(42,168,161,0.12);
+    }
+    .hero-img-main img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+
+    .hero-badge-float {
+      position: absolute; bottom: 1rem; left: -1.5rem;
+      background: var(--white); border-radius: 12px; padding: 1rem 1.2rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      display: flex; align-items: center; gap: 0.8rem;
+      border: 1px solid var(--border);
+    }
+    .badge-icon { font-size: 2rem; }
+    .badge-text strong { display: block; font-size: 1.1rem; font-weight: 700; color: var(--text); }
+    .badge-text span { font-size: 0.78rem; color: var(--text-muted); }
+
+    .hero-stat-row {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem;
+    }
+    .hero-stat {
+      background: var(--white); border-radius: 10px;
+      border: 1px solid var(--border); padding: 1rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(42,168,161,0.06);
+    }
+    .hero-stat strong {
+      display: block; font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.8rem; font-weight: 800; color: var(--teal); line-height: 1;
+    }
+    .hero-stat span { font-size: 0.75rem; color: var(--text-muted); }
+
+    /* ── SOCIAL PROOF STRIP ── */
+    .proof-strip {
+      background: var(--teal-xdark);
+      padding: 1.5rem 5%;
+      display: flex; align-items: center; justify-content: center;
+      gap: 3rem; flex-wrap: wrap;
+    }
+    .proof-item {
+      display: flex; align-items: center; gap: 0.7rem;
+      color: rgba(255,255,255,0.85); font-size: 0.88rem;
+    }
+    .proof-item-icon { font-size: 1.3rem; }
+    .proof-item strong { color: #7ef5ef; }
+
+    /* ── SECTIONS SHARED ── */
+    .section { padding: 80px 5%; }
+    .section-alt { background: var(--bg2); }
+    .section-teal { background: var(--teal-xdark); }
+
+    .section-header { text-align: center; max-width: 660px; margin: 0 auto 3.5rem; }
+    .eyebrow {
+      display: inline-block; color: var(--teal); font-size: 0.75rem;
+      font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+      margin-bottom: 0.7rem;
+    }
+    .eyebrow-white { color: #7ef5ef; }
+    h2.block-title {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
+      font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05;
+      color: var(--text); letter-spacing: -0.3px;
+    }
+    h2.block-title .accent { color: var(--teal); }
+    h2.block-title .accent-orange { color: var(--orange); }
+    h2.block-title-white { color: var(--white); }
+    .section-intro { margin-top: 0.8rem; color: var(--text-soft); font-size: 1rem; line-height: 1.7; }
+    .section-intro-white { color: rgba(255,255,255,0.75); }
+
+    .max { max-width: 1200px; margin: 0 auto; }
+
+    /* ── PARA QUEM É ── */
+    .quem-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem;
+    }
+    .quem-card {
+      background: var(--white); border-radius: 14px;
+      border: 1px solid var(--border); padding: 2rem 1.8rem;
+      transition: all 0.3s;
+      box-shadow: 0 2px 10px rgba(42,168,161,0.05);
+    }
+    .quem-card:hover { transform: translateY(-4px); box-shadow: 0 10px 32px rgba(42,168,161,0.12); border-color: var(--teal); }
+    .quem-icon { font-size: 2.4rem; margin-bottom: 1rem; }
+    .quem-card h3 {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+      font-size: 1.35rem; color: var(--text); margin-bottom: 0.6rem;
+    }
+    .quem-card p { font-size: 0.9rem; color: var(--text-soft); line-height: 1.65; }
+
+    /* ── TIPOS DE IMPLANTE ── */
+    .tipos-grid { display: flex; flex-direction: column; gap: 2rem; }
+
+    .tipo-card {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+      border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(42,168,161,0.07);
+    }
+    .tipo-card.reverse { direction: rtl; }
+    .tipo-card.reverse > * { direction: ltr; }
+
+    .tipo-img {
+      background: var(--bg2);
+      min-height: 320px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 5rem;
+      position: relative; overflow: hidden;
+    }
+    .tipo-img img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+    .tipo-img-placeholder { position: relative; z-index: 1; opacity: 0.4; }
+
+    .tipo-content {
+      background: var(--white); padding: 3rem 2.5rem;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .tipo-tag {
+      display: inline-block; background: var(--teal-light);
+      color: var(--teal-dark); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.3rem 0.8rem; border-radius: 100px; margin-bottom: 1rem;
+    }
+    .tipo-tag-orange { background: var(--orange-light); color: var(--orange-dark); }
+    .tipo-content h3 {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
+      font-size: 1.9rem; color: var(--text); margin-bottom: 0.8rem; line-height: 1.1;
+    }
+    .tipo-content p { font-size: 0.95rem; color: var(--text-soft); line-height: 1.72; margin-bottom: 1.2rem; }
+    .tipo-checks { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.8rem; }
+    .tipo-checks li { display: flex; align-items: center; gap: 0.6rem; font-size: 0.9rem; color: var(--text-soft); }
+    .tipo-checks li::before { content: '✓'; color: var(--green-check); font-weight: 700; font-size: 0.85rem; }
+
+    /* ── BENEFÍCIOS ── */
+    .beneficios-grid {
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem;
+    }
+    .beneficio-card {
+      background: rgba(255,255,255,0.07); border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12); padding: 2rem 1.5rem;
+      transition: all 0.3s; text-align: center;
+    }
+    .beneficio-card:hover { background: rgba(255,255,255,0.12); transform: translateY(-3px); }
+    .beneficio-icon { font-size: 2.4rem; margin-bottom: 1rem; }
+    .beneficio-card h3 {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+      font-size: 1.25rem; color: var(--white); margin-bottom: 0.5rem;
+    }
+    .beneficio-card p { font-size: 0.85rem; color: rgba(255,255,255,0.65); line-height: 1.6; }
+
+    /* ── DR. MARCO ── */
+    .dr-grid {
+      display: grid; grid-template-columns: 380px 1fr; gap: 5rem; align-items: center;
+    }
+    .dr-photo {
+      position: relative;
+    }
+    .dr-photo-frame {
+      border-radius: 16px; overflow: hidden; aspect-ratio: 3/4;
+      background: var(--bg2); border: 1px solid var(--border);
+      box-shadow: 0 12px 40px rgba(42,168,161,0.1);
+    }
+    .dr-photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    .dr-cro {
+      position: absolute; bottom: -16px; right: -16px;
+      background: var(--teal); color: var(--white);
+      padding: 0.9rem 1.2rem; border-radius: 10px;
+      font-size: 0.8rem; font-weight: 600; text-align: center;
+      box-shadow: 0 6px 20px rgba(42,168,161,0.3);
+    }
+    .dr-cro strong { display: block; font-size: 1rem; }
+
+    .dr-content .eyebrow { margin-bottom: 0.5rem; }
+    .dr-content h2 {
       font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-      font-size: clamp(3rem, 6vw, 5.5rem); line-height: 0.95; letter-spacing: -1px;
-      color: var(--text); margin-bottom: 1.5rem; animation: fadeUp 0.6s 0.1s ease both;
+      font-size: 2.6rem; line-height: 1.05; color: var(--text);
+      margin-bottom: 1.2rem;
     }
-    .hero-title .accent { color: var(--teal); }
-    .hero-title .accent2 { color: var(--orange); }
+    .dr-content h2 span { color: var(--teal); }
+    .dr-content p { font-size: 1rem; color: var(--text-soft); line-height: 1.8; margin-bottom: 1rem; }
+    .dr-stats {
+      display: flex; gap: 2.5rem; margin: 1.8rem 0;
+      padding: 1.5rem; background: var(--bg2); border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    .dr-stat strong { display: block; font-family: 'Barlow Condensed', sans-serif; font-size: 2.2rem; font-weight: 800; color: var(--orange); line-height: 1; }
+    .dr-stat span { font-size: 0.8rem; color: var(--text-muted); }
 
-    .hero-subtitle {
-      font-size: 1.05rem; line-height: 1.7; color: var(--text-soft);
-      max-width: 480px; margin-bottom: 2.5rem; font-weight: 300;
-      animation: fadeUp 0.6s 0.2s ease both;
+    /* ── DÚVIDAS ── */
+    .faq-list { display: flex; flex-direction: column; gap: 1px; max-width: 820px; margin: 0 auto; }
+    .faq-item {
+      border: 1px solid var(--border); border-radius: 10px;
+      overflow: hidden; margin-bottom: 0.75rem;
+      background: var(--white);
+    }
+    .faq-q {
+      width: 100%; background: none; border: none; cursor: pointer;
+      padding: 1.3rem 1.6rem; text-align: left;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600;
+      color: var(--text); transition: background 0.2s;
+    }
+    .faq-q:hover { background: var(--bg2); }
+    .faq-arrow { color: var(--teal); font-size: 1.2rem; transition: transform 0.3s; flex-shrink: 0; }
+    .faq-item.open .faq-arrow { transform: rotate(45deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s;
+      padding: 0 1.6rem; color: var(--text-soft); font-size: 0.95rem; line-height: 1.75;
+    }
+    .faq-item.open .faq-a { max-height: 300px; padding: 0 1.6rem 1.4rem; }
+
+    /* ── PAGAMENTO ── */
+    .pagamento-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
+    .pagamento-content h2 {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+      font-size: 2.6rem; line-height: 1.05; color: var(--white); margin-bottom: 1rem;
+    }
+    .pagamento-content h2 span { color: #7ef5ef; }
+    .pagamento-content p { color: rgba(255,255,255,0.78); line-height: 1.75; margin-bottom: 1.5rem; }
+    .pagamento-items { display: flex; flex-direction: column; gap: 0.75rem; }
+    .pagamento-item {
+      display: flex; align-items: center; gap: 0.9rem;
+      background: rgba(255,255,255,0.08); border-radius: 8px; padding: 0.9rem 1.2rem;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .pagamento-item-icon { font-size: 1.4rem; }
+    .pagamento-item span { color: rgba(255,255,255,0.9); font-size: 0.95rem; }
+    .pagamento-item strong { color: var(--white); }
+
+    .pagamento-cta {
+      background: rgba(255,255,255,0.06); border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.15); padding: 3rem 2.5rem;
+      text-align: center;
+    }
+    .pagamento-cta p { color: rgba(255,255,255,0.7); margin-bottom: 1.5rem; font-size: 0.95rem; }
+    .pagamento-cta h3 {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
+      font-size: 1.8rem; color: var(--white); margin-bottom: 0.5rem;
     }
 
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.6s 0.3s ease both; }
+    /* ── SEGURANÇA ── */
+    .seguranca-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .seguranca-item {
+      text-align: center; padding: 2rem 1.5rem;
+      background: var(--white); border-radius: 14px;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 10px rgba(42,168,161,0.05);
+      transition: all 0.3s;
+    }
+    .seguranca-item:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(42,168,161,0.1); }
+    .seguranca-item .seg-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .seguranca-item h3 {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+      font-size: 1.25rem; color: var(--text); margin-bottom: 0.5rem;
+    }
+    .seguranca-item p { font-size: 0.87rem; color: var(--text-soft); line-height: 1.6; }
 
-    .btn-primary {
+    /* ── CTA FINAL ── */
+    .cta-final {
+      background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+      padding: 90px 5%; text-align: center; position: relative; overflow: hidden;
+    }
+    .cta-final::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='40' cy='40' r='38' fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='1'/%3E%3C/svg%3E");
+    }
+    .cta-final h2 {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+      font-size: clamp(2.4rem, 5vw, 4rem); color: var(--white);
+      line-height: 1.05; margin-bottom: 0.8rem; position: relative;
+    }
+    .cta-final p { color: rgba(255,255,255,0.88); font-size: 1.1rem; margin-bottom: 2.5rem; position: relative; }
+    .cta-final-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; }
+    .btn-white {
       display: inline-flex; align-items: center; gap: 10px;
-      background: var(--orange); color: var(--white); padding: 0.9rem 2rem;
-      border-radius: 6px; font-weight: 600; font-size: 0.95rem; text-decoration: none;
-      transition: all 0.25s; border: 2px solid var(--orange);
+      background: var(--white); color: var(--orange);
+      padding: 1.1rem 2.5rem; border-radius: 8px;
+      font-weight: 700; font-size: 1.05rem; text-decoration: none;
+      transition: all 0.25s;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.15);
     }
-    .btn-primary:hover { background: var(--orange-dark); border-color: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,98,26,0.3); }
-
-    .btn-secondary {
+    .btn-white:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(0,0,0,0.2); }
+    .btn-outline-white {
       display: inline-flex; align-items: center; gap: 10px;
-      background: transparent; color: var(--teal); padding: 0.9rem 2rem;
-      border-radius: 6px; font-weight: 600; font-size: 0.95rem; text-decoration: none;
-      transition: all 0.25s; border: 2px solid rgba(42,168,161,0.35);
+      background: transparent; color: var(--white);
+      padding: 1.1rem 2.5rem; border-radius: 8px;
+      font-weight: 600; font-size: 1rem; text-decoration: none;
+      border: 2px solid rgba(255,255,255,0.5);
+      transition: all 0.25s;
     }
-    .btn-secondary:hover { border-color: var(--teal); background: rgba(42,168,161,0.06); transform: translateY(-2px); }
+    .btn-outline-white:hover { border-color: white; background: rgba(255,255,255,0.1); transform: translateY(-3px); }
 
-    .hero-visual { position: relative; z-index: 2; display: flex; justify-content: center; align-items: center; animation: fadeUp 0.8s 0.2s ease both; }
+    .cta-final-note { margin-top: 1.5rem; font-size: 0.82rem; color: rgba(255,255,255,0.6); position: relative; }
 
-    .hero-logo-container { position: relative; width: 380px; height: 380px; display: flex; align-items: center; justify-content: center; }
-
-    .hero-logo-ring { position: absolute; inset: 0; border-radius: 50%; border: 1px solid rgba(42,168,161,0.25); animation: spin 20s linear infinite; }
-    .hero-logo-ring::after { content: ''; position: absolute; top: -4px; left: 50%; width: 8px; height: 8px; background: var(--teal); border-radius: 50%; margin-left: -4px; }
-    .hero-logo-ring2 { position: absolute; inset: 20px; border-radius: 50%; border: 1px solid rgba(232,98,26,0.2); animation: spin 30s linear infinite reverse; }
-
-    .hero-logo-img { width: 260px; height: 260px; object-fit: contain; filter: drop-shadow(0 4px 24px rgba(42,168,161,0.2)); }
-
-    .hero-stats { display: flex; gap: 2rem; margin-top: 3rem; animation: fadeUp 0.6s 0.4s ease both; }
-    .stat { display: flex; flex-direction: column; }
-    .stat-number { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; font-weight: 800; color: var(--teal); line-height: 1; }
-    .stat-label { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; font-weight: 400; }
-
-    /* ─── SECTIONS ─── */
-    section { padding: 100px 5%; }
-
-    .section-label {
-      display: inline-flex; align-items: center; gap: 8px;
-      color: var(--teal); font-size: 0.78rem; font-weight: 600;
-      letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem;
+    /* ── FOOTER ── */
+    footer {
+      background: var(--teal-xdark); padding: 2.5rem 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
     }
-    .section-label::before { content: ''; width: 24px; height: 2px; background: var(--teal); }
+    .footer-brand { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.5rem; color: var(--white); }
+    .footer-brand span { color: var(--orange); }
+    .footer-info { font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.6; }
+    .footer-info a { color: #7ef5ef; text-decoration: none; }
 
-    .section-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(2.2rem, 4vw, 3.5rem); line-height: 1; letter-spacing: -0.5px; color: var(--text); }
+    /* ── WHATSAPP FLOAT ── */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 300;
+      width: 64px; height: 64px; background: #25D366; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.5); text-decoration: none;
+      transition: all 0.3s; animation: waPulse 2.5s infinite;
+    }
+    .wa-float:hover { transform: scale(1.1); }
+    .wa-float svg { width: 34px; height: 34px; fill: white; }
+    .wa-label {
+      position: absolute; right: 74px;
+      background: var(--white); color: var(--text); font-size: 0.8rem; font-weight: 600;
+      padding: 0.4rem 0.8rem; border-radius: 6px; white-space: nowrap;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+      opacity: 0; transform: translateX(8px); transition: all 0.25s; pointer-events: none;
+    }
+    .wa-float:hover .wa-label { opacity: 1; transform: translateX(0); }
 
-    /* ─── SOBRE ─── */
-    #sobre { background: var(--bg2); position: relative; overflow: hidden; }
-    #sobre::before { content: ''; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(42,168,161,0.07) 0%, transparent 70%); }
-
-    .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1200px; margin: 0 auto; }
-    .sobre-content .section-title { margin-bottom: 1.5rem; }
-    .sobre-content p { color: var(--text-soft); line-height: 1.8; margin-bottom: 1.2rem; font-size: 1rem; font-weight: 300; }
-
-    .sobre-values { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
-    .value-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem; transition: all 0.3s; box-shadow: 0 2px 8px rgba(42,168,161,0.06); }
-    .value-card:hover { border-color: var(--teal); box-shadow: 0 4px 16px rgba(42,168,161,0.12); transform: translateY(-2px); }
-    .value-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
-    .value-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--teal); letter-spacing: 0.02em; }
-    .value-desc { font-size: 0.82rem; color: var(--text-muted); margin-top: 4px; line-height: 1.5; }
-
-    .sobre-image { position: relative; }
-    .sobre-image-frame { width: 100%; aspect-ratio: 4/5; background: var(--bg3); border-radius: 12px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; box-shadow: 0 8px 32px rgba(42,168,161,0.1); }
-
-    .sobre-accent-card { position: absolute; bottom: -20px; left: -20px; background: var(--orange); border-radius: 8px; padding: 1.2rem 1.5rem; z-index: 2; box-shadow: 0 8px 24px rgba(232,98,26,0.3); }
-    .sobre-accent-card .num { font-family: 'Barlow Condensed', sans-serif; font-size: 2.2rem; font-weight: 900; line-height: 1; color: var(--white); }
-    .sobre-accent-card .lbl { font-size: 0.8rem; color: rgba(255,255,255,0.9); font-weight: 300; }
-
-    /* ─── SERVIÇOS ─── */
-    #servicos { background: var(--bg); }
-    .servicos-header { text-align: center; max-width: 600px; margin: 0 auto 4rem; }
-    .servicos-header .section-label { justify-content: center; }
-    .servicos-header p { margin-top: 1rem; color: var(--text-soft); font-size: 1rem; line-height: 1.7; font-weight: 300; }
-
-    .servicos-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 20px; max-width: 1200px; margin: 0 auto;
+    /* ── ANIMATIONS ── */
+    @keyframes waPulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.5); }
+      50% { box-shadow: 0 4px 40px rgba(37,211,102,0.8); }
     }
 
-    .servico-card {
-      background: var(--card-bg); padding: 2.5rem 2rem;
-      transition: all 0.3s; position: relative; overflow: hidden;
-      border-radius: 12px; border: 1px solid var(--border);
-      box-shadow: 0 2px 12px rgba(42,168,161,0.06);
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
-    .servico-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: var(--teal); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
-    .servico-card:hover { background: var(--bg2); box-shadow: 0 8px 28px rgba(42,168,161,0.12); transform: translateY(-4px); }
-    .servico-card:hover::after { transform: scaleX(1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    .servico-num { font-family: 'Barlow Condensed', sans-serif; font-size: 3rem; font-weight: 900; color: rgba(42,168,161,0.12); line-height: 1; margin-bottom: 1rem; }
-    .servico-icon { font-size: 2rem; margin-bottom: 1rem; }
-    .servico-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.4rem; color: var(--text); letter-spacing: 0.02em; margin-bottom: 0.8rem; }
-    .servico-desc { font-size: 0.88rem; color: var(--text-soft); line-height: 1.7; font-weight: 300; }
-
-    /* ─── DIFERENCIAIS ─── */
-    #diferenciais { background: var(--bg2); position: relative; overflow: hidden; }
-    #diferenciais::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(42,168,161,0.3), transparent); }
-
-    .diferenciais-inner { max-width: 1200px; margin: 0 auto; }
-    .diferenciais-top { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 4rem; }
-    .diferenciais-top p { color: var(--text-soft); line-height: 1.8; font-weight: 300; }
-
-    .diferenciais-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-
-    .diferencial-item {
-      background: var(--white); padding: 2rem 1.5rem; position: relative;
-      transition: all 0.3s; border-radius: 10px; border: 1px solid var(--border);
-      box-shadow: 0 2px 8px rgba(42,168,161,0.05);
-    }
-    .diferencial-item:hover { box-shadow: 0 6px 20px rgba(42,168,161,0.12); transform: translateY(-3px); border-color: var(--teal); }
-    .diferencial-item::before { content: attr(data-num); position: absolute; top: 1rem; right: 1rem; font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; color: rgba(42,168,161,0.2); }
-    .diferencial-icon { font-size: 2rem; margin-bottom: 1rem; }
-    .diferencial-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.15rem; color: var(--teal); margin-bottom: 0.5rem; }
-    .diferencial-desc { font-size: 0.83rem; color: var(--text-muted); line-height: 1.6; font-weight: 300; }
-
-    /* ─── CTA BANNER ─── */
-    .cta-banner {
-      background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 50%, var(--teal-dark) 100%);
-      padding: 80px 5%; text-align: center; position: relative; overflow: hidden;
-    }
-    .cta-banner::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30 L30 0 L60 30 L30 60 Z' fill='none' stroke='rgba(255,255,255,0.07)' stroke-width='1'/%3E%3C/svg%3E"); }
-    .cta-banner h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(2rem, 5vw, 4rem); color: var(--white); line-height: 1.05; margin-bottom: 1rem; position: relative; }
-    .cta-banner p { color: rgba(255,255,255,0.85); font-size: 1.05rem; margin-bottom: 2rem; font-weight: 300; position: relative; }
-    .cta-banner .btn-dark { display: inline-flex; align-items: center; gap: 10px; background: var(--white); color: var(--teal); padding: 1rem 2.5rem; border-radius: 6px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: all 0.25s; position: relative; }
-    .cta-banner .btn-dark:hover { background: var(--bg2); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,0.15); }
-
-    /* ─── CONTATO ─── */
-    #contato { background: var(--bg); }
-    .contato-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; max-width: 1200px; margin: 0 auto; align-items: start; }
-    .contato-info .section-title { margin-bottom: 1.5rem; }
-    .contato-info > p { color: var(--text-soft); line-height: 1.8; font-weight: 300; margin-bottom: 2.5rem; }
-
-    .contato-items { display: flex; flex-direction: column; gap: 1.2rem; }
-    .contato-item { display: flex; align-items: flex-start; gap: 1rem; }
-    .contato-item-icon { width: 44px; height: 44px; border-radius: 8px; background: var(--teal-light); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
-    .contato-item-text strong { display: block; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--teal); font-weight: 600; margin-bottom: 2px; }
-    .contato-item-text span { color: var(--text-soft); font-size: 0.93rem; font-weight: 300; }
-
-    .contato-map { background: var(--bg2); border-radius: 12px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 4px 20px rgba(42,168,161,0.08); }
-    .contato-map iframe { width: 100%; height: 420px; border: none; display: block; }
-    .contato-map-footer { padding: 1.2rem 1.5rem; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); }
-    .contato-map-footer span { font-size: 0.83rem; color: var(--text-muted); }
-    .contato-map-footer a { font-size: 0.83rem; color: var(--teal); text-decoration: none; font-weight: 500; }
-
-    /* ─── FOOTER ─── */
-    footer { background: var(--text); border-top: 1px solid rgba(255,255,255,0.08); padding: 48px 5% 32px; }
-    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
-    .footer-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.8rem; color: var(--teal); }
-    .footer-logo span { color: var(--orange); }
-    .footer-links { display: flex; gap: 2rem; list-style: none; }
-    .footer-links a { color: rgba(255,255,255,0.45); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--teal); }
-    .footer-copy { color: rgba(255,255,255,0.3); font-size: 0.78rem; margin-top: 2rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.5rem; max-width: 1200px; margin: 2rem auto 0; }
-
-    /* ─── WHATSAPP FLOAT ─── */
-    .whatsapp-float { position: fixed; bottom: 28px; right: 28px; z-index: 200; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.5); text-decoration: none; transition: all 0.3s; animation: pulse 2s infinite; }
-    .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.6); }
-    .whatsapp-float svg { width: 32px; height: 32px; fill: white; }
-
-    /* ─── ANIMATIONS ─── */
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-    @keyframes pulse { 0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.5); } 50% { box-shadow: 0 4px 32px rgba(37,211,102,0.8); } }
-
-    /* ─── MOBILE ─── */
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      #inicio { grid-template-columns: 1fr; min-height: auto; padding: 120px 5% 60px; text-align: center; }
-      .hero-visual { order: -1; margin-bottom: 2rem; }
-      .hero-logo-container { width: 220px; height: 220px; }
-      .hero-logo-img { width: 160px; height: 160px; }
-      .hero-content { padding-right: 0; }
-      .hero-subtitle { margin: 0 auto 2rem; }
-      .hero-actions { justify-content: center; }
-      .hero-stats { justify-content: center; }
-      .sobre-grid, .contato-grid, .diferenciais-top { grid-template-columns: 1fr; gap: 40px; }
-      .servicos-grid { grid-template-columns: 1fr; }
-      .diferenciais-list { grid-template-columns: 1fr 1fr; }
-      .sobre-values { grid-template-columns: 1fr; }
-      .sobre-accent-card { position: static; margin-top: 1rem; display: inline-block; }
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      .sticky-bar p { font-size: 0.78rem; }
+      .hero { grid-template-columns: 1fr; min-height: auto; padding: 5.5rem 5% 3rem; gap: 2.5rem; }
+      .hero-visual { order: -1; }
+      .hero-stat-row { grid-template-columns: repeat(3,1fr); }
+      .quem-grid { grid-template-columns: 1fr; }
+      .tipo-card, .tipo-card.reverse { grid-template-columns: 1fr; direction: ltr; }
+      .tipo-img { min-height: 220px; }
+      .beneficios-grid { grid-template-columns: 1fr 1fr; }
+      .dr-grid { grid-template-columns: 1fr; }
+      .dr-photo { max-width: 320px; margin: 0 auto; }
+      .pagamento-grid { grid-template-columns: 1fr; }
+      .seguranca-grid { grid-template-columns: 1fr; }
+      .proof-strip { gap: 1.2rem; }
+      .cta-final-btns { flex-direction: column; align-items: center; }
+      footer { flex-direction: column; text-align: center; }
+      .hero-badge-float { left: 0; }
     }
 
+    @media (max-width: 480px) {
+      .beneficios-grid { grid-template-columns: 1fr; }
+      .hero-stat-row { grid-template-columns: 1fr 1fr 1fr; }
+      .hero-stat strong { font-size: 1.4rem; }
+    }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="#inicio" class="nav-logo">
-    <span class="nav-logo-mark">RP<span>●</span></span>
-    <span style="font-family:'DM Sans',sans-serif;font-size:0.85rem;color:var(--text-muted);font-weight:300;">Implantes</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#sobre">Sobre</a></li>
-    <li><a href="#servicos">Serviços</a></li>
-    <li><a href="#diferenciais">Diferenciais</a></li>
-    <li><a href="#contato">Contato</a></li>
-    <li><a href="https://wa.me/5517997296875" class="nav-cta" target="_blank">WhatsApp</a></li>
-  </ul>
-  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+<!-- STICKY BAR -->
+<div class="sticky-bar">
+  <p>🎁 <strong>Avaliação 100% gratuita</strong> · Sem compromisso · São José do Rio Preto</p>
+  <a href="https://wa.me/5517997296875?text=Olá!%20Gostaria%20de%20agendar%20minha%20avaliação%20gratuita%20de%20implante." target="_blank">Agendar Agora</a>
+</div>
 
 <!-- HERO -->
-<section id="inicio">
-  <div class="hero-bg"></div>
-  <div class="hero-grid-lines"></div>
-
+<section class="hero">
   <div class="hero-content">
-    <div class="hero-badge">Odontologia Especializada · São José do Rio Preto</div>
-    <h1 class="hero-title">
-      TRANSFORMAMOS<br>
-      <span class="accent">SORRISOS</span><br>
-      COM <span class="accent2">EXCELÊNCIA</span>
-    </h1>
-    <p class="hero-subtitle">
-      Clínica odontológica especializada em implantes dentais. Combinamos tecnologia de ponta, profissionais altamente qualificados e atendimento humanizado para devolver sua confiança e qualidade de vida.
+    <div class="hero-eyebrow">Especialistas em Implantes · Rio Preto</div>
+    <h1>Recupere seu<br>sorriso com um<br><em>implante</em> que<br>dura <span class="hi">para sempre</span></h1>
+    <p class="hero-sub">
+      Perdeu um dente ou vários? A RP Implantes tem a solução certa para você — com especialista de mais de 15 anos, tecnologia avançada e parcelamento facilitado.
     </p>
-    <div class="hero-actions">
-      <a href="https://wa.me/5517997296875" class="btn-primary" target="_blank">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Agendar Consulta
+    <ul class="hero-checks">
+      <li>Avaliação gratuita e sem compromisso</li>
+      <li>Implante imediato em poucos dias</li>
+      <li>Prótese protocolo para casos completos</li>
+      <li>Parcelamento facilitado — caberá no seu bolso</li>
+      <li>+4.000 sorrisos transformados em Rio Preto</li>
+    </ul>
+    <div class="cta-group">
+      <a href="https://wa.me/5517997296875?text=Olá!%20Quero%20agendar%20minha%20avaliação%20gratuita%20de%20implante." class="btn-cta-main" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Quero minha avaliação gratuita
       </a>
-      <a href="#servicos" class="btn-secondary">
-        Nossos Serviços →
+      <a href="https://wa.me/5517997296875?text=Olá!%20Quero%20um%20orçamento%20de%20implante%20dentário." class="btn-cta-sec" target="_blank">
+        💬 Pedir orçamento no WhatsApp
       </a>
     </div>
-    <div class="hero-stats">
-      <div class="stat">
-        <span class="stat-number">+1000</span>
-        <span class="stat-label">Implantes realizados</span>
-      </div>
-      <div class="stat">
-        <span class="stat-number">100%</span>
-        <span class="stat-label">Satisfação garantida</span>
-      </div>
-      <div class="stat">
-        <span class="stat-number">+10</span>
-        <span class="stat-label">Anos de experiência</span>
-      </div>
-    </div>
+    <p class="hero-guarantee">Avaliação gratuita. Sem pressão. Você decide com calma.</p>
   </div>
 
   <div class="hero-visual">
-    <div class="hero-logo-container">
-      <div class="hero-logo-ring"></div>
-      <div class="hero-logo-ring2"></div>
-      <img src="logo.png" alt="RP Implantes" class="hero-logo-img" />
+    <div class="hero-img-main">
+      <img src="clinica1.png" alt="Equipe RP Implantes realizando atendimento" onerror="this.parentElement.style.display='flex';this.parentElement.style.alignItems='center';this.parentElement.style.justifyContent='center';this.parentElement.style.fontSize='5rem';this.parentElement.innerHTML='🦷';" />
+    </div>
+    <div class="hero-badge-float">
+      <span class="badge-icon">⭐</span>
+      <div class="badge-text">
+        <strong>+4.000 implantes</strong>
+        <span>realizados em Rio Preto</span>
+      </div>
+    </div>
+    <div class="hero-stat-row">
+      <div class="hero-stat"><strong>+15</strong><span>anos de especialidade</span></div>
+      <div class="hero-stat"><strong>100%</strong><span>segurança na cirurgia</span></div>
+      <div class="hero-stat"><strong>Grátis</strong><span>avaliação inicial</span></div>
     </div>
   </div>
 </section>
 
-<!-- SOBRE -->
-<section id="sobre">
-  <div style="max-width:1200px;margin:0 auto;">
-
-    <!-- Clínica intro -->
-    <div class="sobre-grid" style="margin-bottom:5rem;">
-      <div class="sobre-content">
-        <span class="section-label">Quem Somos</span>
-        <h2 class="section-title">UMA CLÍNICA<br><span style="color:var(--teal)">COMPROMETIDA</span><br>COM VOCÊ</h2>
-        <p>A RP Implantes é um Centro Odontológico Especializado em São José do Rio Preto, focado em oferecer o que há de mais moderno e tecnológico na Odontologia.</p>
-        <p>Além da especialidade em implantes, contamos com uma equipe multidisciplinar de dentistas para todas as áreas: estética dental, endodontia, clínica geral e muito mais — tudo em um só lugar.</p>
-        <p>Acreditamos que um sorriso bonito e saudável transforma vidas. Por isso, cada atendimento é personalizado, respeitando as necessidades e o tempo de cada paciente.</p>
-        <div class="sobre-values">
-          <div class="value-card">
-            <div class="value-icon">🎯</div>
-            <div class="value-title">Especialização</div>
-            <div class="value-desc">Foco em implantodontia e reabilitação oral</div>
-          </div>
-          <div class="value-card">
-            <div class="value-icon">🔬</div>
-            <div class="value-title">Tecnologia</div>
-            <div class="value-desc">Equipamentos modernos e técnicas avançadas</div>
-          </div>
-          <div class="value-card">
-            <div class="value-icon">❤️</div>
-            <div class="value-title">Humanização</div>
-            <div class="value-desc">Atendimento acolhedor e personalizado</div>
-          </div>
-          <div class="value-card">
-            <div class="value-icon">✅</div>
-            <div class="value-title">Resultado</div>
-            <div class="value-desc">Comprometimento com a sua satisfação</div>
-          </div>
-        </div>
-      </div>
-      <div class="sobre-image">
-        <div class="sobre-image-frame" style="overflow:hidden;background:#111;">
-          <img src="fachada.png" alt="Fachada da RP Implantes" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.style.display='none'" />
-        </div>
-        <div class="sobre-accent-card">
-          <div class="num">+4mil</div>
-          <div class="lbl">sorrisos<br>transformados</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Dr. Marco -->
-    <div style="display:grid;grid-template-columns:320px 1fr;gap:60px;align-items:center;background:var(--bg2);border-radius:16px;box-shadow:0 4px 24px rgba(42,168,161,0.08);overflow:hidden;border:1px solid var(--border);margin-bottom:4rem;">
-      <div style="position:relative;height:420px;overflow:hidden;">
-        <img src="dr-marco.png" alt="Dr. Marco Antonio Simonini" style="width:100%;height:100%;object-fit:cover;object-position:top;" onerror="this.parentElement.style.background='var(--dark3)'" />
-        <div style="position:absolute;bottom:0;left:0;right:0;padding:1.2rem 1.5rem;background:linear-gradient(transparent,rgba(0,0,0,0.85));">
-          <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.2rem;color:var(--white);">Dr. Marco A. Simonini</div>
-          <div style="font-size:0.78rem;color:var(--teal);font-weight:500;">CRO 102.781 · Responsável Técnico</div>
-        </div>
-      </div>
-      <div style="padding:2.5rem 2.5rem 2.5rem 0;">
-        <span class="section-label">Responsável Técnico</span>
-        <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:2rem;line-height:1.1;margin-bottom:1.2rem;">DR. MARCO ANTONIO<br><span style="color:var(--teal)">SIMONINI</span></h3>
-        <p style="color:var(--text-soft);line-height:1.8;font-weight:300;margin-bottom:1rem;">Especialista em implantes dentários há mais de 15 anos, o Dr. Marco Antonio Simonini é sócio e responsável técnico da RP Implantes. Ao longo da carreira, já transformou mais de 4 mil sorrisos, atendendo pacientes em São Paulo capital, São José do Rio Preto e região.</p>
-        <p style="color:var(--text-soft);line-height:1.8;font-weight:300;margin-bottom:2rem;">Com uma equipe multidisciplinar ao seu lado, o Dr. Marco garante que cada paciente receba o melhor tratamento disponível — seja um implante, uma limpeza ou qualquer outra especialidade.</p>
-        <div style="display:flex;gap:2rem;">
-          <div>
-            <div style="font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:800;color:var(--orange);line-height:1;">+15</div>
-            <div style="font-size:0.78rem;color:var(--text-muted);">anos de experiência</div>
-          </div>
-          <div>
-            <div style="font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:800;color:var(--orange);line-height:1;">+4mil</div>
-            <div style="font-size:0.78rem;color:var(--text-muted);">sorrisos transformados</div>
-          </div>
-          <div>
-            <div style="font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:800;color:var(--orange);line-height:1;">SP+RP</div>
-            <div style="font-size:0.78rem;color:var(--text-muted);">regiões atendidas</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Galeria -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
-      <div style="border-radius:10px;overflow:hidden;aspect-ratio:4/3;">
-        <img src="clinica1.png" alt="Atendimento RP Implantes" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
-      </div>
-      <div style="border-radius:10px;overflow:hidden;aspect-ratio:4/3;">
-        <img src="clinica2.png" alt="Procedimento RP Implantes" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
-      </div>
-      <div style="border-radius:10px;overflow:hidden;aspect-ratio:4/3;">
-        <img src="fachada.png" alt="Fachada RP Implantes" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- SERVIÇOS -->
-<section id="servicos">
-  <div class="servicos-header">
-    <span class="section-label">Tratamentos</span>
-    <h2 class="section-title">NOSSOS<br><span style="color:var(--orange)">SERVIÇOS</span></h2>
-    <p>Oferecemos soluções completas em odontologia, com foco em implantodontia e reabilitação oral, para devolver sua função mastigatória e estética com excelência.</p>
-  </div>
-  <div class="servicos-grid">
-    <div class="servico-card">
-      <div class="servico-num">01</div>
-      <div class="servico-icon">🦷</div>
-      <h3 class="servico-title">Implantes e Próteses Dentárias</h3>
-      <p class="servico-desc">Recupere a função e a estética do seu sorriso com implantes de titânio de alta qualidade e próteses sob medida — fixas ou removíveis — para devolver conforto e autoestima.</p>
-    </div>
-    <div class="servico-card">
-      <div class="servico-num">02</div>
-      <div class="servico-icon">✨</div>
-      <h3 class="servico-title">Estética Dental</h3>
-      <p class="servico-desc">Harmonize seu sorriso com clareamento dental, lentes de contato e facetas de porcelana. Resultados naturais, bonitos e duradouros.</p>
-    </div>
-    <div class="servico-card">
-      <div class="servico-num">03</div>
-      <div class="servico-icon">🩺</div>
-      <h3 class="servico-title">Tratamento de Canal</h3>
-      <p class="servico-desc">Alívio da dor e preservação do seu dente natural com segurança e precisão. Tratamento endodôntico realizado por especialistas para salvar seu sorriso.</p>
-    </div>
-    <div class="servico-card">
-      <div class="servico-num">04</div>
-      <div class="servico-icon">🪥</div>
-      <h3 class="servico-title">Limpeza</h3>
-      <p class="servico-desc">Remoção profissional de placas e tártaro para um sorriso saudável, fresco e protegido. Prevenção é o melhor tratamento.</p>
-    </div>
-    <div class="servico-card">
-      <div class="servico-num">05</div>
-      <div class="servico-icon">😁</div>
-      <h3 class="servico-title">Ortodontia</h3>
-      <p class="servico-desc">Alinhe seus dentes e conquiste um sorriso mais saudável e harmonioso com aparelhos fixos, removíveis ou alinhadores transparentes.</p>
-    </div>
-    <div class="servico-card">
-      <div class="servico-num">06</div>
-      <div class="servico-icon">🔧</div>
-      <h3 class="servico-title">Extração</h3>
-      <p class="servico-desc">Procedimentos seguros, minimamente invasivos e com todo o conforto que você merece, quando a extração é necessária para preservar sua saúde bucal.</p>
-    </div>
-  </div>
-</section>
-
-<!-- DIFERENCIAIS -->
-<section id="diferenciais">
-  <div class="diferenciais-inner">
-    <div class="diferenciais-top">
-      <div>
-        <span class="section-label">Por que nos escolher</span>
-        <h2 class="section-title">NOSSOS<br><span style="color:var(--teal)">DIFERENCIAIS</span></h2>
-      </div>
-      <p>Mais do que um tratamento odontológico, oferecemos uma experiência completa de cuidado — da consulta à manutenção, você está em boas mãos.</p>
-    </div>
-    <div class="diferenciais-list">
-      <div class="diferencial-item" data-num="01">
-        <div class="diferencial-icon">🏆</div>
-        <div class="diferencial-title">Especialistas Certificados</div>
-        <div class="diferencial-desc">Equipe com formação especializada em implantodontia e constante atualização</div>
-      </div>
-      <div class="diferencial-item" data-num="02">
-        <div class="diferencial-icon">💻</div>
-        <div class="diferencial-title">Tecnologia Digital</div>
-        <div class="diferencial-desc">Planejamento digital 3D, guias cirúrgicos e tomografia de alta resolução</div>
-      </div>
-      <div class="diferencial-item" data-num="03">
-        <div class="diferencial-icon">🤝</div>
-        <div class="diferencial-title">Atendimento Humanizado</div>
-        <div class="diferencial-desc">Acolhimento desde o primeiro contato, com atenção a cada detalhe</div>
-      </div>
-      <div class="diferencial-item" data-num="04">
-        <div class="diferencial-icon">💰</div>
-        <div class="diferencial-title">Facilidades de Pagamento</div>
-        <div class="diferencial-desc">Parcelamento facilitado para que o sorriso dos sonhos caiba no seu bolso</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA BANNER -->
-<div class="cta-banner">
-  <h2>PRONTO PARA TRANSFORMAR<br>SEU SORRISO?</h2>
-  <p>Agende sua avaliação gratuita e descubra o tratamento ideal para você</p>
-  <a href="https://wa.me/5517997296875" class="btn-dark" target="_blank">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    Falar no WhatsApp
-  </a>
+<!-- PROOF STRIP -->
+<div class="proof-strip">
+  <div class="proof-item"><span class="proof-item-icon">🏆</span><span><strong>Dr. Marco Simonini</strong> · CRO 102.781</span></div>
+  <div class="proof-item"><span class="proof-item-icon">📍</span><span>Av. Vetorasso, 1850 · <strong>São José do Rio Preto</strong></span></div>
+  <div class="proof-item"><span class="proof-item-icon">💳</span><span><strong>Parcelamento facilitado</strong> · Caberá no seu orçamento</span></div>
+  <div class="proof-item"><span class="proof-item-icon">📞</span><span><strong>(17) 99729-6875</strong></span></div>
 </div>
 
-<!-- CONTATO -->
-<section id="contato">
-  <div class="contato-grid">
-    <div class="contato-info">
-      <span class="section-label">Localização e Contato</span>
-      <h2 class="section-title">ONDE NOS<br><span style="color:var(--teal)">ENCONTRAR</span></h2>
-      <p>Estamos em São José do Rio Preto, prontos para atender você com toda atenção e cuidado que você merece.</p>
-      <div class="contato-items">
-        <div class="contato-item">
-          <div class="contato-item-icon">📍</div>
-          <div class="contato-item-text">
-            <strong>Endereço</strong>
-            <span>Av. Fortunato Ernesto Vetorasso, 1850<br>Rotatória da Borghese – São José do Rio Preto/SP</span>
-          </div>
-        </div>
-        <div class="contato-item">
-          <div class="contato-item-icon">📱</div>
-          <div class="contato-item-text">
-            <strong>WhatsApp / Telefone</strong>
-            <span><a href="https://wa.me/5517997296875" style="color:var(--teal);text-decoration:none;">(17) 99729-6875</a></span>
-          </div>
-        </div>
-        <div class="contato-item">
-          <div class="contato-item-icon">🕐</div>
-          <div class="contato-item-text">
-            <strong>Horário de Atendimento</strong>
-            <span>Segunda a Sexta: 8h às 18h<br>Sábado: 8h às 12h</span>
-          </div>
-        </div>
-        <div class="contato-item">
-          <div class="contato-item-icon">✉️</div>
-          <div class="contato-item-text">
-            <strong>E-mail</strong>
-            <span><a href="mailto:contato@rpimplantes.com.br" style="color:var(--teal);text-decoration:none;">contato@rpimplantes.com.br</a></span>
-          </div>
-        </div>
-      </div>
+<!-- PARA QUEM É -->
+<section class="section">
+  <div class="max">
+    <div class="section-header reveal">
+      <span class="eyebrow">Para quem é indicado</span>
+      <h2 class="block-title">Perdeu um dente<br>ou <span class="accent">vários?</span> Temos a solução</h2>
+      <p class="section-intro">Não importa a sua situação — temos o tratamento certo para devolver função, beleza e confiança ao seu sorriso.</p>
     </div>
-    <div class="contato-map">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3730.0059686655295!2d-49.42494232082154!3d-20.7910464312921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94bdadcda7ddb281%3A0xf9f357b78d20c62b!2sRP%20Implantes%20%7C%20Cl%C3%ADnica%20Odontol%C3%B3gica!5e0!3m2!1spt-BR!2sbr!4v1780484974593!5m2!1spt-BR!2sbr"
-        width="600" height="450" style="border:0;filter:grayscale(0.3) contrast(1.1);"
-        allowfullscreen loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="RP Implantes – Localização">
-      </iframe>
-      <div class="contato-map-footer">
-        <span>📍 Av. Fortunato Ernesto Vetorasso, 1850 – São José do Rio Preto/SP</span>
-        <a href="https://maps.google.com/?q=RP+Implantes+Clinica+Odontologica+Sao+Jose+do+Rio+Preto" target="_blank">Ver no Google Maps →</a>
+    <div class="quem-grid">
+      <div class="quem-card reveal">
+        <div class="quem-icon">🦷</div>
+        <h3>Perdeu um dente</h3>
+        <p>Um único implante substitui o dente perdido com aparência e função naturais, sem desgastar os dentes vizinhos. É a solução mais moderna e duradoura disponível hoje.</p>
+      </div>
+      <div class="quem-card reveal">
+        <div class="quem-icon">😬</div>
+        <h3>Perdeu vários dentes</h3>
+        <p>Implantes múltiplos ou próteses sobre implantes devolvem mastigação completa, estética e conforto — mesmo em casos de perda de muitos dentes.</p>
+      </div>
+      <div class="quem-card reveal">
+        <div class="quem-icon">😞</div>
+        <h3>Usa prótese removível</h3>
+        <p>Cansou da dentadura que escorrega, atrapalha a fala e a mastigação? A prótese fixa sobre implantes muda completamente sua vida — sem cola, sem desconforto.</p>
       </div>
     </div>
   </div>
+</section>
+
+<!-- TIPOS DE IMPLANTE -->
+<section class="section section-alt">
+  <div class="max">
+    <div class="section-header reveal">
+      <span class="eyebrow">Nossas soluções</span>
+      <h2 class="block-title">Escolha o tratamento<br><span class="accent">ideal para você</span></h2>
+    </div>
+
+    <div class="tipos-grid">
+
+      <!-- Implante Unitário -->
+      <div class="tipo-card reveal">
+        <div class="tipo-img">
+          <img src="clinica2.png" alt="Implante unitário" onerror="this.style.display='none'" />
+          <span class="tipo-img-placeholder">🦷</span>
+        </div>
+        <div class="tipo-content">
+          <span class="tipo-tag">Mais popular</span>
+          <h3>Implante Unitário</h3>
+          <p>O implante de titânio é inserido no osso e funciona como a raiz do dente. Sobre ele, colocamos uma coroa de porcelana idêntica ao dente natural. Resultado: beleza, mastigação e naturalidade.</p>
+          <ul class="tipo-checks">
+            <li>Aparência completamente natural</li>
+            <li>Não prejudica os dentes vizinhos</li>
+            <li>Dura a vida inteira com os cuidados certos</li>
+            <li>Osseointegração segura e comprovada</li>
+          </ul>
+          <a href="https://wa.me/5517997296875?text=Tenho%20interesse%20em%20implante%20unitário.%20Quero%20uma%20avaliação." class="btn-cta-main" target="_blank">Agendar avaliação gratuita →</a>
+        </div>
+      </div>
+
+      <!-- Implante Imediato -->
+      <div class="tipo-card reverse reveal">
+        <div class="tipo-img">
+          <img src="fachada.png" alt="Implante imediato" onerror="this.style.display='none'" />
+          <span class="tipo-img-placeholder">⚡</span>
+        </div>
+        <div class="tipo-content">
+          <span class="tipo-tag">Em poucos dias</span>
+          <h3>Implante Imediato</h3>
+          <p>Em muitos casos, o implante pode ser colocado logo após a extração do dente — na mesma consulta ou em poucos dias. Menos tempo de espera, mais agilidade para recuperar seu sorriso.</p>
+          <ul class="tipo-checks">
+            <li>Possível na mesma sessão da extração</li>
+            <li>Reduz o tempo total de tratamento</li>
+            <li>Menos procedimentos cirúrgicos</li>
+            <li>Resultado estético mais rápido</li>
+          </ul>
+          <a href="https://wa.me/5517997296875?text=Quero%20saber%20mais%20sobre%20implante%20imediato.%20Posso%20agendar%20avaliação?" class="btn-cta-main" target="_blank">Quero saber se sou candidato →</a>
+        </div>
+      </div>
+
+      <!-- Prótese Protocolo -->
+      <div class="tipo-card reveal">
+        <div class="tipo-img">
+          <img src="dr-marco.png" alt="Prótese protocolo" onerror="this.style.display='none'" />
+          <span class="tipo-img-placeholder">😁</span>
+        </div>
+        <div class="tipo-content">
+          <span class="tipo-tag tipo-tag-orange">Muda a vida</span>
+          <h3>Prótese Protocolo<br><span style="color:var(--teal)">All-on-4 / All-on-6</span></h3>
+          <p>A prótese protocolo é a solução definitiva para quem perdeu todos ou quase todos os dentes. Com apenas 4 ou 6 implantes, colocamos uma arcada completa fixa — sem dentadura, sem cola, sem desconforto.</p>
+          <ul class="tipo-checks">
+            <li>Arcada completa fixa em cima de 4 a 6 implantes</li>
+            <li>Sai da clínica com dentes no mesmo dia</li>
+            <li>Come, fala e sorri com total segurança</li>
+            <li>Transforma autoestima e qualidade de vida</li>
+          </ul>
+          <a href="https://wa.me/5517997296875?text=Tenho%20interesse%20na%20prótese%20protocolo.%20Gostaria%20de%20uma%20avaliação%20gratuita." class="btn-cta-main" target="_blank" style="background:var(--orange);">Quero transformar meu sorriso →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BENEFÍCIOS -->
+<section class="section section-teal">
+  <div class="max">
+    <div class="section-header reveal">
+      <span class="eyebrow eyebrow-white">Por que fazer o implante agora</span>
+      <h2 class="block-title h2.block-title-white" style="color:white;">O implante muda mais do que<br>o seu sorriso</h2>
+      <p class="section-intro section-intro-white">Quem recupera os dentes com implante relata mudanças profundas na vida — muito além da estética.</p>
+    </div>
+    <div class="beneficios-grid">
+      <div class="beneficio-card reveal">
+        <div class="beneficio-icon">😊</div>
+        <h3>Autoestima de volta</h3>
+        <p>Sorrir com confiança, sem esconder a boca — isso muda a forma como você se relaciona com as pessoas.</p>
+      </div>
+      <div class="beneficio-card reveal">
+        <div class="beneficio-icon">🍖</div>
+        <h3>Come o que quiser</h3>
+        <p>Mastigação completa e sem dor. Churrasco, pão, frutas — sem limitação e sem desconforto.</p>
+      </div>
+      <div class="beneficio-card reveal">
+        <div class="beneficio-icon">💬</div>
+        <h3>Fala com clareza</h3>
+        <p>Chega de dificuldade na fala ou medo de a prótese soltar. O implante fica fixo como um dente natural.</p>
+      </div>
+      <div class="beneficio-card reveal">
+        <div class="beneficio-icon">⏳</div>
+        <h3>Resultado definitivo</h3>
+        <p>Com os cuidados certos, o implante dura décadas — é um investimento feito uma vez para a vida toda.</p>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:3rem;">
+      <a href="https://wa.me/5517997296875?text=Quero%20agendar%20minha%20avaliação%20gratuita%20de%20implante." class="btn-white" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Quero transformar meu sorriso agora
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- DR. MARCO -->
+<section class="section">
+  <div class="max">
+    <div class="dr-grid">
+      <div class="dr-photo reveal">
+        <div class="dr-photo-frame">
+          <img src="dr-marco.png" alt="Dr. Marco Antonio Simonini" onerror="this.parentElement.style.background='var(--bg2)'" />
+        </div>
+        <div class="dr-cro">
+          <strong>CRO 102.781</strong>
+          Resp. Técnico
+        </div>
+      </div>
+      <div class="dr-content reveal">
+        <span class="eyebrow">Quem vai cuidar de você</span>
+        <h2>Dr. Marco Antonio <span>Simonini</span></h2>
+        <p>Com mais de <strong>15 anos de especialidade em implantodontia</strong>, o Dr. Marco já transformou mais de <strong>4.000 sorrisos</strong> em São Paulo e São José do Rio Preto. É sócio e responsável técnico da RP Implantes — e vai avaliar seu caso pessoalmente.</p>
+        <p>Sua equipe reúne especialistas em todas as áreas: estética, ortodontia, endodontia e clínica geral. Um único lugar para cuidar de todo o seu sorriso.</p>
+        <div class="dr-stats">
+          <div class="dr-stat"><strong>+15</strong><span>anos de especialidade</span></div>
+          <div class="dr-stat"><strong>+4mil</strong><span>implantes realizados</span></div>
+          <div class="dr-stat"><strong>SP+RP</strong><span>regiões atendidas</span></div>
+        </div>
+        <a href="https://wa.me/5517997296875?text=Quero%20agendar%20avaliação%20com%20o%20Dr.%20Marco." class="btn-cta-main" target="_blank" style="max-width:380px;">
+          Agendar avaliação com o Dr. Marco →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEGURANÇA -->
+<section class="section section-alt">
+  <div class="max">
+    <div class="section-header reveal">
+      <span class="eyebrow">Segurança em primeiro lugar</span>
+      <h2 class="block-title">A cirurgia de implante<br>é <span class="accent">segura e tranquila</span></h2>
+      <p class="section-intro">Sabemos que muita gente tem dúvidas — e até medo — sobre a cirurgia. A realidade é bem diferente do que se imagina.</p>
+    </div>
+    <div class="seguranca-grid">
+      <div class="seguranca-item reveal">
+        <div class="seg-icon">💉</div>
+        <h3>Anestesia local</h3>
+        <p>O procedimento é feito com anestesia local. Você fica acordado, mas não sente dor. É mais tranquilo do que parece.</p>
+      </div>
+      <div class="seguranca-item reveal">
+        <div class="seg-icon">⏱️</div>
+        <h3>Rápido e preciso</h3>
+        <p>A cirurgia de um implante unitário dura em média 30 a 60 minutos. O pós-operatório é leve, com cuidados simples.</p>
+      </div>
+      <div class="seguranca-item reveal">
+        <div class="seg-icon">🔬</div>
+        <h3>Tecnologia e planejamento</h3>
+        <p>Usamos tomografia e planejamento digital para garantir precisão e segurança em cada etapa do tratamento.</p>
+      </div>
+      <div class="seguranca-item reveal">
+        <div class="seg-icon">🦴</div>
+        <h3>Titânio biocompatível</h3>
+        <p>O implante é feito de titânio, material 100% biocompatível que o organismo aceita e integra ao osso naturalmente.</p>
+      </div>
+      <div class="seguranca-item reveal">
+        <div class="seg-icon">👨‍⚕️</div>
+        <h3>Especialista experiente</h3>
+        <p>Você estará nas mãos de um implantodontista com mais de 15 anos de experiência e milhares de casos bem-sucedidos.</p>
+      </div>
+      <div class="seguranca-item reveal">
+        <div class="seg-icon">📋</div>
+        <h3>Acompanhamento completo</h3>
+        <p>Do planejamento à manutenção, nossa equipe acompanha cada etapa para garantir o melhor resultado para você.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DÚVIDAS FREQUENTES -->
+<section class="section">
+  <div class="max">
+    <div class="section-header reveal">
+      <span class="eyebrow">Tire suas dúvidas</span>
+      <h2 class="block-title">Perguntas <span class="accent">frequentes</span><br>sobre implante</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          O implante dói? <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">A cirurgia é realizada com anestesia local e não causa dor durante o procedimento. Após a anestesia passar, pode haver um leve desconforto ou sensibilidade nos dias seguintes — controlado facilmente com analgésicos comuns. A maioria dos pacientes fica surpresa com o quão tranquilo é o pós-operatório.</div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Quanto tempo dura o tratamento? <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">O tempo varia conforme o caso. No implante imediato, é possível sair com o dente provisório no mesmo dia. No processo convencional, a osseointegração leva de 2 a 6 meses antes da colocação da coroa definitiva. O Dr. Marco vai avaliar sua situação e indicar o melhor caminho.</div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Qualquer pessoa pode fazer implante? <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">A grande maioria das pessoas é candidata ao implante. Em alguns casos, como perda óssea significativa, pode ser necessário um enxerto ósseo antes. Doenças como diabetes controlada ou pressão alta não impedem o tratamento. A avaliação gratuita identifica o melhor plano para o seu caso.</div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          O implante pode cair ou soltar? <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">Não. Após a osseointegração completa, o implante fica fixo no osso como uma raiz natural. Com higiene adequada e consultas periódicas, a taxa de sucesso dos implantes ultrapassa 95% e eles duram décadas — ou a vida toda.</div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Qual a diferença entre implante e prótese protocolo? <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">O implante unitário substitui um único dente. A prótese protocolo (All-on-4 ou All-on-6) reabilita toda uma arcada — todos os dentes de cima ou de baixo — apoiada em apenas 4 ou 6 implantes. É a solução indicada para quem perdeu todos ou quase todos os dentes e quer uma prótese fixa e definitiva.</div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Como funciona o parcelamento? <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">Trabalhamos com diversas opções de pagamento e parcelamento para que o tratamento caiba no seu orçamento. As condições são discutidas após a avaliação gratuita, de acordo com o seu plano de tratamento. Nossa prioridade é que você não adie seu sorriso por questões financeiras.</div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:2.5rem;" class="reveal">
+      <p style="color:var(--text-muted);margin-bottom:1rem;font-size:0.95rem;">Ainda tem dúvidas? Nossa equipe responde agora pelo WhatsApp.</p>
+      <a href="https://wa.me/5517997296875?text=Tenho%20algumas%20dúvidas%20sobre%20implante%20dentário." class="btn-cta-sec" target="_blank" style="display:inline-flex;max-width:400px;">
+        💬 Tirar dúvidas pelo WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PAGAMENTO -->
+<section class="section section-teal">
+  <div class="max">
+    <div class="pagamento-grid">
+      <div class="pagamento-content reveal">
+        <span class="eyebrow eyebrow-white">Facilitamos para você</span>
+        <h2>O implante que<br>você merece<br><span>cabe no seu bolso</span></h2>
+        <p>Sabemos que o valor do tratamento pode ser uma preocupação. Por isso, trabalhamos com condições de pagamento facilitadas para que você não precise adiar seu sorriso.</p>
+        <div class="pagamento-items">
+          <div class="pagamento-item">
+            <span class="pagamento-item-icon">💳</span>
+            <span>Parcelamento em até <strong>várias vezes</strong> no cartão</span>
+          </div>
+          <div class="pagamento-item">
+            <span class="pagamento-item-icon">📋</span>
+            <span>Plano de tratamento <strong>personalizado e transparente</strong></span>
+          </div>
+          <div class="pagamento-item">
+            <span class="pagamento-item-icon">🎁</span>
+            <span><strong>Avaliação 100% gratuita</strong> e sem compromisso</span>
+          </div>
+          <div class="pagamento-item">
+            <span class="pagamento-item-icon">🤝</span>
+            <span>Condições conversadas <strong>depois da avaliação</strong></span>
+          </div>
+        </div>
+      </div>
+      <div class="pagamento-cta reveal">
+        <h3>Avaliação<br>100% Gratuita</h3>
+        <p>Venha conhecer a clínica, avaliar seu caso e descobrir o melhor tratamento para você — sem custo e sem compromisso.</p>
+        <a href="https://wa.me/5517997296875?text=Quero%20agendar%20minha%20avaliação%20gratuita%20de%20implante!" class="btn-white" target="_blank" style="display:inline-flex;margin-bottom:1rem;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Agendar agora pelo WhatsApp
+        </a>
+        <p style="font-size:0.78rem;color:rgba(255,255,255,0.45);">📍 Av. Vetorasso, 1850 · São José do Rio Preto</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <h2>Seu sorriso pode mudar<br>ainda esse mês</h2>
+  <p>Agende agora sua avaliação gratuita e dê o primeiro passo para recuperar sua confiança, sua mastigação e sua qualidade de vida.</p>
+  <div class="cta-final-btns">
+    <a href="https://wa.me/5517997296875?text=Quero%20agendar%20minha%20avaliação%20gratuita%20de%20implante!" class="btn-white" target="_blank">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Quero minha avaliação gratuita
+    </a>
+    <a href="tel:+5517997296875" class="btn-outline-white">
+      📞 Ligar agora: (17) 99729-6875
+    </a>
+  </div>
+  <p class="cta-final-note">🔒 Avaliação 100% gratuita · Sem pressão · Você decide com calma</p>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-logo">RP<span>●</span> <span style="color:rgba(255,255,255,0.5);font-size:1rem;font-family:'DM Sans';font-weight:300;">Implantes</span></div>
-    <ul class="footer-links">
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#servicos">Serviços</a></li>
-      <li><a href="#diferenciais">Diferenciais</a></li>
-      <li><a href="#contato">Contato</a></li>
-    </ul>
-  </div>
-  <div class="footer-copy">
-    © 2025 RP Implantes – Centro Odontológico Especializado · Todos os direitos reservados.<br>
-    Responsável Técnico: Dr. Marco Antonio Simonini · CRO 102.781
+  <div class="footer-brand">RP<span>●</span> Implantes</div>
+  <div class="footer-info">
+    Av. Fortunato Ernesto Vetorasso, 1850 · Rotatória da Borghese · São José do Rio Preto/SP<br>
+    <a href="tel:+5517997296875">(17) 99729-6875</a> · contato@rpimplantes.com.br<br>
+    Resp. Técnico: Dr. Marco Antonio Simonini · CRO 102.781
   </div>
 </footer>
 
 <!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/5517997296875" class="whatsapp-float" target="_blank" aria-label="Falar no WhatsApp">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-  </svg>
+<a href="https://wa.me/5517997296875?text=Olá!%20Quero%20agendar%20minha%20avaliação%20gratuita." class="wa-float" target="_blank" aria-label="WhatsApp">
+  <span class="wa-label">Falar agora!</span>
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
 <script>
-  function toggleMenu() {
-    const links = document.querySelector('.nav-links');
-    links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
-    links.style.flexDirection = 'column';
-    links.style.position = 'absolute';
-    links.style.top = '72px';
-    links.style.left = '0';
-    links.style.right = '0';
-    links.style.background = 'rgba(10,10,10,0.98)';
-    links.style.padding = '1.5rem 5%';
-    links.style.gap = '1.5rem';
-    links.style.borderBottom = '1px solid rgba(61,191,184,0.15)';
+  // FAQ toggle
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
   }
 
   // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(el => {
-      if (el.isIntersecting) {
-        el.target.style.opacity = '1';
-        el.target.style.transform = 'translateY(0)';
-      }
-    });
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
-
-  document.querySelectorAll('.servico-card, .diferencial-item, .value-card').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    observer.observe(el);
-  });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 
 </body>
